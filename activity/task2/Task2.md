@@ -11,3 +11,5 @@ Write code that uses **while** loops to generate the following sketches.
 ## Embed a screenshot of your drawing
 
 Embed the screenshot you added to the `screenshots` directory here using markdown syntax:
+![task2A](task2A.png)
+![task2B](task2B.png)

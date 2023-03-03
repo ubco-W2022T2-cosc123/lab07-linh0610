@@ -19,27 +19,24 @@ void draw(){
   // draw time numbers
   fill(0,255,255);    //Numbers color
   float angle = -PI/2;
-  /* 
-  Add a for loop here to draw 12 numbers. 
-  The loop counter i should take the values 1..12 (inclusive)
-  Each time, compute the (x,y) of the number using the equation:
-      x = 85 * cos(angle)  and y = 85 * sin(angle)
-  Once x,y is computed, put the value of i (the number) at (x,y)
-  In each loop iteration, increment angle by PI/6 (30 degrees)
-  */
+  for (int i = 1; i <= 12; i++) {
+    x = 85 * cos(angle);
+    y = 85 * sin(angle);
+    text(i, x, y);
+    angle += PI/6;
+  }
 
   // draw time ticks
   fill(0,255,255);
   angle = 0;
-  /* 
-  Add a for loop here to draw 60 ticks. 
-  The loop counter i should take the values 1..60 (inclusive)
-  Each time, compute the (x,y) and (x2,y2) of each tick (line):
-      x = 65 * cos(angle)  and y = 65 * sin(angle)
-      x2 = 70 * cos(angle)  and y2 = 70 * sin(angle)
-  Then, draw a line between (x,y) and (x2,y2)
-  In each iteration, increment angle by PI/30 (6 degrees)
-  */
+  for (int i = 1; i <= 60; i++) {
+    x = 65 * cos(angle);
+    y = 65 * sin(angle);
+    x2 = 70 * cos(angle);
+    y2 = 70 * sin(angle);
+    line(x, y, x2, y2);
+    angle += PI/30;
+  }
  
   // draw hours hand
   stroke(255,0,0);  strokeWeight(5);
@@ -54,7 +51,6 @@ void draw(){
   x = 55 * cos(angleleMin);
   y = 55 * sin(angleleMin);
   line(0,0,x,y);
-
   // draw seconds hand  stroke(255,255,0);
   strokeWeight(1);
   float angleleSec = second() * PI/30 - PI/2;  // seconds * 6 degrees

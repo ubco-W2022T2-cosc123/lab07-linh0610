@@ -48,18 +48,30 @@ if (!isGameOver) {              //play as long as it is not game over
     Yb += speedY;
 
 // CHECK for collisions
-    // REQ1: Add code to bounce the ball off the two sides and the top edge        
+    // REQ1: Add code to bounce the ball off the two sides and the top edge
+    if (Xb - r < 0 || Xb + r > width) {
+      speedX *= -1;
+    }
+    if (Yb - r < 0) {
+      speedY *= -1;
+    }
     
-    // REQ2: Add code to check if ball lands on the paddle. Here is the pseudo-code:
-    // if the ball is at the bottom edge (hint: check Yb)                         
-    //     if ball lands on paddle (hint: see the assignment on how to check this) 
-    //         increment score, bounce ball up, and increase speed by 10%         
-    //     else                                                                    
-    //         set isGameOver to true;                                           
+    // REQ2: Add code to check if ball lands on the paddle.
+    if (Yb + r > Yp - h/2 && Yb + r < Yp + h/2) { // ball at the bottom edge
+      if (Xb > Xp-w && Xb < Xp+w) { // ball lands on paddle
+        score++;
+        speedY *= -1.1;
+      } else {
+        isGameOver = true;
+      }
+    }
 
 } else { // if game over
-    //REQ3: Add code for putting the GameOver message and stoping the animation loop 
+    //REQ3: Add code for putting the GameOver message and stoping the animation loop
+    textAlign(CENTER);
+    textSize(32);
+    fill(255, 0, 0);
+    text("GAME OVER!", width/2, height/2);
+    noLoop();
   }
 }
-
-//no other functions are required! (e.g. don't implement mousePressed, keyPressed, etc)

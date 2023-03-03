@@ -4,10 +4,9 @@ void setup() {
 }
 
 void draw() {
-  int x = 0;
-  while (x < width) {
+  // Draw background gradient
+  for (int x = 0; x < width; x++) {
     stroke(x, 100, 100);
     line(x, 0, x, height);
-    x++;
   }
 }

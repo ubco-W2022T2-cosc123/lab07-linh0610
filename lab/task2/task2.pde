@@ -71,7 +71,7 @@ if (!isGameOver) {              //play as long as it is not game over
     textAlign(CENTER);
     textSize(32);
     fill(255, 0, 0);
-    text("GAME OVER!", width/2, height/2);
+    text("GAME OVER! your score is " + score, width/2, height/2);
     noLoop();
   }
 }
